@@ -1,0 +1,5 @@
+az disk create \
+	--name az-gbp-vert-11 \
+	--resource-group gb-group-01 \
+	--size-gb 3072 \
+

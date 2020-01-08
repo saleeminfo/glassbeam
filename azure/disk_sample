@@ -1,0 +1,14 @@
+az vm disk attach \
+   -g gb-group-01 \
+   --vm-name az-gbp-solr-02 \
+   --disk solr-02 \
+   --new \
+   --size-gb 600
+
+az vm disk attach \
+   -g gb-group-01 \
+   --vm-name az-gbp-solr-03 \
+   --disk solr-03 \
+   --new \
+   --size-gb 600
+

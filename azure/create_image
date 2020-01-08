@@ -1,0 +1,12 @@
+#SSH to the VM and Deprovision the VM.
+waagent -deprovision+user -force
+
+#Deallocate and mark the VM as generalized
+az vm deallocate --resource-group gb-group-01 --name gb-test-01
+az vm generalize --resource-group gb-group-01 --name gb-test-01
+
+#Create the image
+az image create \
+    --resource-group gb-group-01 \
+    --name master-img-180911 \
+    --source gb-test-01

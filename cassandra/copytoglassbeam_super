@@ -1,0 +1,2 @@
+cp glassbeam_role glassbeam_super
+sed -e 's/glassbeam/glassbeam_super/g' glassbeam_super

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Create a resource group.
+az group create --name glassbeam --location east-us
+
+# Create a virtual network.
+az network vnet create --resource-group gb-group --name gbvnet --subnet-name gb-private
+
+# Create a public IP address.
+az network public-ip create --resource-group myResourceGroup --name myPublicIP
+
+# Create a network security group.
+az network nsg create --resource-group glassbeam --name gb-sec
+
+# Create a virtual network card and associate with public IP address and NSG.
+az network nic create \
+  --resource-group glassbeam \
+  --name gb \
+  --vnet-name gbvnet \
+  --subnet gb-private \
+  --network-security-group gb-sec \
+  --public-ip-address myPublicIP
+
+# Create a new virtual machine, this creates SSH keys if not present.
+az vm create --resource-group glassbeam --name myVM --nics myNic --image UbuntuLTS --generate-ssh-keys
+
+# Open port 22 to allow SSh traffic to host.
+az vm open-port --port 22 --resource-group glassbeam --name gb-test-01

@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "running nodetool flush"
+cassandra/current/bin/nodetool flush
+echo "running nodetool drain"
+cassandra/current/bin/nodetool drain
+echo "stopping cassandra daemon"
+cassandra/current/bin/nodetool stopdaemon
+echo "starting cassandra daemon"
+cassandra/current/bin/cassandra
+

@@ -1,0 +1,40 @@
+# Create a new virtual machine, this creates SSH keys if not present.
+#az vm create --resource-group gb-group-01 --name gb-test-02  --image UbuntuLTS --generate-ssh-keys
+
+az vm create \
+    --resource-group gb-group-01 \
+    --name az-gbp-solr-02 \
+    --image master-img-180911 \
+    --admin-username gbs \
+    --vnet-name gb-group-01-vnet \
+    --nsg az-gbp-internal-nsg \
+    --subnet gb-pvt-sub \
+    --private-ip-address 10.0.1.32  \
+    --public-ip-address "" \
+    --size Standard_E8s_v3 \
+    
+
+az vm create \
+    --resource-group gb-group-01 \
+    --name az-gbp-solr-03 \
+    --image master-img-180911 \
+    --admin-username gbs \
+    --vnet-name gb-group-01-vnet \
+    --nsg az-gbp-internal-nsg \
+    --subnet gb-pvt-sub \
+    --private-ip-address 10.0.1.33  \
+    --public-ip-address "" \
+    --size Standard_E8s_v3 \
+
+az vm create \
+    --resource-group gb-group-01 \
+    --name az-gbp-solr-04 \
+    --image master-img-180911 \
+    --admin-username gbs \
+    --vnet-name gb-group-01-vnet \
+    --nsg az-gbp-internal-nsg \
+    --subnet gb-pvt-sub \
+    --private-ip-address 10.0.1.34  \
+    --public-ip-address "" \
+    --size Standard_E8s_v3 \
+
